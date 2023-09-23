@@ -65,12 +65,9 @@ def count_reviews(fecha1, fecha2):
 @app.get('/genre/{genero}')
 
 def genre(genero):
-    try:
-        df = pd.read_csv('rankgenres.csv')
-        rank = df[df['genero'] == genero]['Rank'].values[0]
-    except:
-        rank = 'Genero no existe'
-    return rank
+  df = pd.read_csv('rankgenres.csv')
+  rank = df[df['genero'] == genero]['Rank'].values[0]
+  return {'rank': rank}
 
 @app.get('/user_for_genre/{genero}')
 
