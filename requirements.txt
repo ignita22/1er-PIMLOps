@@ -1,0 +1,8 @@
+fastapi
+numpy
+pandas
+scikit-learn
+wordcloud
+matplotlib
+uvicorn
+datetime
