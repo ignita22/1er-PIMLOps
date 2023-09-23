@@ -2,9 +2,15 @@ from fastapi import FastAPI
 import pandas as pd
 import numpy as np
 
+df_user_items_final = pd.read_csv('df_user_items_final.csv')
+df_user_reviews_final = pd.read_csv('df_user_reviews_final.csv')
+df_steam_games = pd.read_csv('df_steam_games_final.csv')
+
+
 app = FastAPI()
 
 @app.get('/userdata/{user_id}')
+
 def userdata(user_id):
     df_user_items_id = df_user_items_final[df_user_items_final['user_id']==user_id]['item_id']
     respuesta = ''
@@ -37,6 +43,7 @@ def userdata(user_id):
                 'Cantidad de items': item_count}
 
     return respuesta
+
 
 @app.get('/count_reviews/{fecha1}')
 
